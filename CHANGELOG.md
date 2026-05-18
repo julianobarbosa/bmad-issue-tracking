@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Story worktree now uses unique name based on branch path instead of hardcoded `story`, enabling parallel work on multiple stories
 - Code review complete no longer asks user for verdict — reads it from sprint-status.yaml
 - Code review complete no longer asks user about review comment — extracts Review Findings section from story file
+- find-stories now reads sprint-status.yaml from each story worktree instead of the PRD worktree, correctly finding stories whose status was updated on their own branch
 - Code review complete no longer asks user for verdict — reads it from sprint-status.yaml
 - Code review complete no longer asks user about review comment — checks if file exists
 

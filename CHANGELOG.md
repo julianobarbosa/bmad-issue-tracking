@@ -5,7 +5,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [2.1.0] - 2026-05-20
+
+[compare v2.0.1...v2.1.0](https://github.com/jrevillard/bmad-issue-tracking/compare/v2.0.1...v2.1.0)
 
 ### Fixed
 
@@ -16,9 +18,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Issue title formats documented in CLAUDE.md and README.md
-- CI pipeline gate: dev-story waits for green CI before transitioning to review; code-review waits for green CI before merging MR. Polls every 30s while running; on failure, agent fixes and retries.
-
-### Changed
+- CI pipeline gate: dev-story waits for green CI before transitioning to review; code-review waits for green CI before merging MR. Polls every 30s with 30-minute timeout; on failure, agent fixes and retries.
+- `common/check-mr-ci.yaml` and `common/wait-for-green-ci.yaml` sub-workflows (16 common sub-workflows total)
 
 ## [2.0.1] - 2026-05-05
 

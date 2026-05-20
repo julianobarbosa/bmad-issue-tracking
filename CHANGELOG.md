@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Fixed
+
+- Story titles now use consistent `Story N.N: Title` format across create-story and sync-issues (was double-numbered or using raw key)
+- PRD issue title harmonized between create-prd and issue-sync/prepare (both now use `"PRD: {prd_key}"`)
+- Removed fragile exact-title verification in sync-issues — labels already scope the search to the right PRD
+
+### Added
+
+- Issue title formats documented in CLAUDE.md and README.md
+
 ## [2.0.1] - 2026-05-05
 
 [compare v2.0.0...v2.0.1](https://github.com/jrevillard/bmad-issue-tracking/compare/v2.0.0...v2.0.1)

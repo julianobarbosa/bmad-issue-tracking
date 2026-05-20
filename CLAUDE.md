@@ -49,6 +49,19 @@ TOML instructions reference these placeholders — they are NOT config variables
 - `$MR_HOST`, `$MR_PROJECT` — git remote host/project for MR operations (GitLab); same as `$HOST`/`$PROJECT_PATH` when platforms match
 - `$MR_OWNER`, `$MR_REPO` — git remote owner/repo for PR operations (GitHub); same as `$OWNER`/`$REPO` when platforms match
 
+## Issue title formats
+
+All workflows that create issues use these title formats. They must stay consistent — `create-issue.yaml` searches by title to avoid duplicates.
+
+| Type | Format | Set by |
+|------|--------|--------|
+| PRD | `PRD: {prd_key}` | `create-prd/complete.yaml`, `issue-sync/prepare.yaml` |
+| Story | `Story {epic_num}.{story_num}: {title}` | `create-story/complete.yaml`, `sync-issues.yaml` |
+| Epic | `Epic {n}: {title}` | `sync-issues.yaml` |
+| Retrospective | `Retrospective: Epic {n}` | `retrospective/complete.yaml` |
+
+For stories, `{title}` is extracted from the story file heading (`# Story 1.4: Login Form` → `Login Form`). During initial sync (sprint-planning), story files don't exist yet — the title is derived from the entry key (`1-4-login-form` → `Login Form`). Both paths produce the same format.
+
 ## Branch/MR flow
 
 Branch setup happens in activation (before BMM workflow runs). The BMM workflow creates files directly in the worktree. on_complete handles commit/push/issue/MR. Never commit on PRD for story work.

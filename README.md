@@ -90,6 +90,19 @@ Copied to `_bmad/_config/custom/` — referenced by TOML `on_complete` hooks.
 
 Creates/updates issues for all sprint entries, manages labels, reconciles statuses, marks draft PR ready when all epics are done.
 
+## Issue titles
+
+Issues created by the module follow a fixed naming convention:
+
+| Type | Title |
+|------|-------|
+| PRD | `PRD: <prd-key>` |
+| Story | `Story 1.4: Login Form` |
+| Epic | `Epic 1: Authentication` |
+| Retrospective | `Retrospective: Epic 1` |
+
+Story and epic titles are derived from the planning artifacts created by BMM workflows.
+
 ## Branch strategy
 
 When `branch_patterns` is configured in the setup:

@@ -143,7 +143,7 @@ class TestActivationSymmetry:
         "create-story", "dev-story", "code-review",
     }
     # Activations that create their own PRD (no find-prd needed)
-    _SELF_PRD_ACTIVATIONS = {"create-prd"}
+    _SELF_PRD_ACTIVATIONS = {"create-prd", "bmad-prd"}
 
     @pytest.mark.parametrize("rel, wf", list(load_all_workflows().items()), ids=lambda x: x[0] if isinstance(x, tuple) else str(x))
     def test_prd_scoped_activation_has_find_prd(self, rel, wf):

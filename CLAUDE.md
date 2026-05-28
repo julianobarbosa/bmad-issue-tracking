@@ -55,7 +55,7 @@ All workflows that create issues use these title formats. They must stay consist
 
 | Type | Format | Set by |
 |------|--------|--------|
-| PRD | `PRD: {prd_key}` | `create-prd/complete.yaml`, `issue-sync/prepare.yaml` |
+| PRD | `PRD: {prd_key}` | `bmad-prd/complete.yaml`, `create-prd/complete.yaml`, `issue-sync/prepare.yaml` |
 | Story | `Story {epic_num}.{story_num}: {title}` | `create-story/complete.yaml`, `sync-issues.yaml` |
 | Epic | `Epic {n}: {title}` | `sync-issues.yaml` |
 | Retrospective | `Retrospective: Epic {n}` | `retrospective/complete.yaml` |
@@ -68,12 +68,13 @@ Branch setup happens in activation (before BMM workflow runs). The BMM workflow 
 
 | Workflow | Activation | on_complete | MR direction |
 |----------|-----------|-------------|--------------|
-| create-prd | Create/switch to PRD worktree | Commit + push + issue + draft MR | PRD → default (draft) |
+| bmad-prd (6.8.0+) | Detect intent: create → ask key + create worktree; update/validate → find worktree | Create → issue + commit + push + draft MR; update → update description | PRD → default (draft, create only) |
+| create-prd (6.4.0–6.7.x) | Create/switch to PRD worktree | Commit + push + issue + draft MR | PRD → default (draft) |
 | create-architecture | Switch to PRD worktree | Commit + push | (PRD worktree) |
 | create-ux-design | Switch to PRD worktree | Commit + push | (PRD worktree) |
 | create-epics-and-stories | Switch to PRD worktree | Commit + push | (PRD worktree) |
 | sprint-planning | Switch to PRD worktree | Trigger issue sync (steps 4-6) | (PRD worktree) |
-| edit-prd | Switch to PRD worktree | Update PRD issue description | (PRD worktree) |
+| edit-prd (6.4.0–6.7.x) | Switch to PRD worktree | Update PRD issue description | (PRD worktree) |
 | check-implementation-readiness | Switch to PRD worktree | Update issue descriptions if artifacts modified | (PRD worktree) |
 | correct-course | Switch to PRD worktree | Update issue descriptions if artifacts modified | (PRD worktree) |
 | retrospective | Switch to PRD worktree | Create retrospective issue + close | (PRD worktree) |
